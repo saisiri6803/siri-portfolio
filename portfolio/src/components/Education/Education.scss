@@ -1,0 +1,436 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/breakpoints" as *;
+
+.education {
+  padding-block: 5rem;
+
+  background: $theme-light-background;
+  color: $theme-light-text;
+
+  border-top: 1px solid $theme-light-border;
+
+  @include md {
+    padding-block: 7rem;
+  }
+
+  @include lg {
+    padding-block: 9rem;
+  }
+}
+
+.education__container {
+  @include container;
+}
+
+.education__header {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+
+  margin-bottom: 2.5rem;
+
+  @include sm {
+    flex-direction: row;
+
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  @include md {
+    margin-bottom: 4rem;
+  }
+}
+
+.education__label {
+  @include mono-label;
+
+  margin: 0;
+
+  color: $theme-accent;
+}
+
+.education__title {
+  margin: 0.75rem 0 0;
+
+  font-size: clamp(2.5rem, 8vw, 5rem);
+
+  font-weight: 700;
+  line-height: 0.9;
+
+  letter-spacing: -0.055em;
+
+  color: $theme-light-text;
+}
+
+.education__year-range {
+  font-family: $font-mono;
+
+  font-size: 0.7rem;
+
+  color: $theme-accent;
+
+  opacity: 0.7;
+}
+
+.education__list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+
+  max-width: 1000px;
+
+  margin-inline: auto;
+}
+
+.education-card {
+  position: relative;
+
+  padding: 1.5rem;
+
+  border: 1px solid $theme-light-border;
+  border-radius: 1.5rem;
+
+  background: $theme-light-surface-muted;
+
+  transition:
+    transform $transition-normal,
+    border-color $transition-normal,
+    box-shadow $transition-normal,
+    background-color $transition-normal;
+
+  @include sm {
+    padding: 2rem;
+  }
+
+  @include md {
+    padding: 2.5rem;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+
+    border-color: $theme-accent-border;
+
+    background: $theme-light-surface-hover;
+
+    box-shadow: 0 24px 60px $theme-light-shadow;
+  }
+}
+
+.education-card__top {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  padding-bottom: 1.25rem;
+
+  border-bottom: 1px solid $theme-light-border;
+
+  @include md {
+    padding-bottom: 1.5rem;
+  }
+}
+
+.education-card__number {
+  font-family: $font-mono;
+
+  font-size: 0.65rem;
+
+  color: $theme-accent;
+
+  opacity: 0.7;
+}
+
+.education-card__duration {
+  font-family: $font-mono;
+
+  font-size: 0.65rem;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  color: $theme-accent;
+
+  opacity: 0.7;
+
+  text-align: right;
+}
+
+.education-card__body {
+  display: grid;
+
+  grid-template-columns: 12px minmax(0, 1fr);
+
+  gap: 1rem;
+
+  padding-top: 1.5rem;
+
+  @include sm {
+    grid-template-columns: 16px minmax(0, 1fr);
+
+    gap: 1.25rem;
+  }
+
+  @include md {
+    gap: 1.5rem;
+
+    padding-top: 2rem;
+  }
+}
+
+.education-card__marker {
+  width: 8px;
+  height: 8px;
+
+  margin-top: 0.5rem;
+
+  border-radius: 50%;
+
+  background: $theme-accent;
+
+  box-shadow: 0 0 0 5px $theme-accent-ring;
+
+  @include md {
+    width: 10px;
+    height: 10px;
+
+    box-shadow: 0 0 0 6px $theme-accent-ring;
+  }
+}
+
+.education-card__content {
+  min-width: 0;
+}
+
+.education-card__degree {
+  margin: 0;
+
+  font-size: clamp(1.4rem, 3vw, 2.35rem);
+
+  font-weight: 700;
+
+  line-height: 1.05;
+
+  letter-spacing: -0.04em;
+
+  color: $theme-light-text;
+
+  transition: color $transition-fast;
+
+  .education-card:hover & {
+    color: $theme-accent-secondary;
+  }
+}
+
+.education-card__institution {
+  margin: 0.65rem 0 0;
+
+  font-size: 0.95rem;
+
+  font-weight: 600;
+
+  line-height: 1.5;
+
+  color: $theme-light-text-muted;
+
+  @include md {
+    font-size: 1.05rem;
+  }
+}
+
+.education-card__achievements {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.5rem;
+
+  margin: 1.5rem 0 0;
+
+  padding: 0;
+
+  list-style: none;
+
+  @include md {
+    margin-top: 1.75rem;
+
+    gap: 0.65rem;
+  }
+}
+
+.education-card__achievement {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 0.6rem;
+
+  padding: 0.65rem 0.75rem;
+
+  border-radius: 0.75rem;
+
+  font-size: 0.85rem;
+
+  line-height: 1.5;
+
+  color: $theme-light-text-muted;
+
+  transition:
+    background-color $transition-fast,
+    transform $transition-fast,
+    color $transition-fast;
+
+  svg {
+    flex-shrink: 0;
+
+    margin-top: 0.2rem;
+
+    color: $theme-accent-soft;
+  }
+
+  &:hover {
+    background: $theme-accent-soft-bg;
+
+    transform: translateX(4px);
+
+    color: $theme-light-text;
+  }
+
+  @include md {
+    font-size: 0.9rem;
+  }
+}
+
+
+// =============================================
+// MOBILE
+// =============================================
+
+@include mobile {
+  .education {
+    padding-block: 4rem;
+  }
+
+  .education__header {
+    margin-bottom: 2rem;
+  }
+
+  .education-card {
+    padding: 1.25rem;
+
+    border-radius: 1.25rem;
+  }
+
+  .education-card__top {
+    align-items: flex-start;
+  }
+
+  .education-card__duration {
+    max-width: 120px;
+
+    line-height: 1.5;
+  }
+
+  .education-card__body {
+    gap: 0.85rem;
+
+    padding-top: 1.25rem;
+  }
+
+  .education-card__degree {
+    font-size: 1.4rem;
+  }
+
+  .education-card__institution {
+    font-size: 0.85rem;
+  }
+
+  .education-card__achievements {
+    margin-top: 1.25rem;
+  }
+
+  .education-card__achievement {
+    padding-inline: 0.5rem;
+
+    font-size: 0.8rem;
+  }
+}
+
+
+// =============================================
+// DARK MODE
+// =============================================
+
+.app--dark {
+  .education {
+    background: $theme-dark-background;
+    color: $theme-dark-text;
+
+    border-color: $theme-dark-border;
+  }
+
+  .education__label {
+    color: $theme-accent;
+  }
+
+  .education__title {
+    color: $theme-dark-text;
+  }
+
+  .education__year-range {
+    color: $theme-dark-text;
+  }
+
+  .education-card {
+    border-color: $theme-dark-border;
+
+    background: $theme-dark-surface-muted;
+
+    &:hover {
+      border-color: $theme-accent-border;
+
+      background: $theme-dark-surface-hover;
+
+      box-shadow: 0 24px 60px $theme-dark-shadow;
+    }
+  }
+
+  .education-card__top {
+    border-color: $theme-dark-border;
+  }
+
+  .education-card__number,
+  .education-card__duration {
+    color: $theme-dark-text;
+  }
+
+  .education-card__degree {
+    color: $theme-dark-text;
+
+    .education-card:hover & {
+      color: $theme-accent;
+    }
+  }
+
+  .education-card__institution,
+  .education-card__achievement {
+    color: $theme-dark-text-muted;
+  }
+
+  .education-card__achievement {
+    svg {
+      color: $theme-accent-soft;
+    }
+
+    &:hover {
+      background: $theme-accent-soft-bg;
+
+      color: $theme-dark-text;
+    }
+  }
+}

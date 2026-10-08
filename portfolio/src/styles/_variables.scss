@@ -1,0 +1,289 @@
+// =============================================
+// PALETTE
+// Change ONLY these values to re-theme the app
+// =============================================
+
+$palette-primary: #6c0820; // Burgundy
+$palette-secondary: #5a86cb; // Silver Lake Blue
+$palette-accent: #f2aebc; // Cherry Blossom Pink
+$palette-accent-soft: #3d5d91; // Lapis Lazuli
+$palette-cream: #f2dcdb; // Misty Rose
+
+$palette-white: #ffffff;
+$palette-black: #000000;
+
+
+// =============================================
+// LIGHT THEME
+// =============================================
+
+$theme-light-background: $palette-cream;
+
+$theme-light-surface: $palette-white;
+
+$theme-light-surface-muted: rgba(
+  $palette-white,
+  0.55
+);
+
+$theme-light-surface-hover: rgba(
+  $palette-white,
+  0.8
+);
+
+$theme-light-text: $palette-primary;
+
+$theme-light-text-muted: rgba(
+  $palette-primary,
+  0.68
+);
+
+$theme-light-border: rgba(
+  $palette-primary,
+  0.14
+);
+
+$theme-light-shadow: rgba(
+  $palette-primary,
+  0.1
+);
+
+
+// =============================================
+// DARK THEME
+// =============================================
+
+$theme-dark-background: $palette-primary;
+
+$theme-dark-surface: $palette-accent-soft;
+
+$theme-dark-surface-muted: rgba(
+  $palette-cream,
+  0.035
+);
+
+$theme-dark-surface-hover: rgba(
+  $palette-cream,
+  0.06
+);
+
+$theme-dark-text: $palette-cream;
+
+$theme-dark-text-muted: rgba(
+  $palette-cream,
+  0.68
+);
+
+$theme-dark-border: rgba(
+  $palette-cream,
+  0.16
+);
+
+$theme-dark-shadow: rgba(
+  $palette-black,
+  0.3
+);
+
+// =============================================
+// ACCENTS
+// =============================================
+
+$theme-accent: $palette-accent;
+$theme-accent-secondary: $palette-secondary;
+$theme-accent-soft: $palette-accent-soft;
+
+$theme-accent-border: rgba($palette-accent, 0.55);
+$theme-accent-ring: rgba($palette-accent, 0.15);
+$theme-accent-soft-bg: rgba($palette-accent-soft, 0.12);
+
+$theme-secondary-border: rgba($palette-secondary, 0.45);
+$theme-secondary-soft-bg: rgba($palette-secondary, 0.1);
+
+
+// =============================================
+// TIMELINE
+// =============================================
+
+$theme-timeline: $palette-secondary;
+$theme-timeline-border: rgba($theme-timeline, 0.55);
+$theme-timeline-border-muted: rgba($theme-timeline, 0.35);
+$theme-timeline-ring: rgba($theme-timeline, 0.15);
+$theme-timeline-line: rgba($theme-timeline, 0.3);
+$theme-experience-hover-bg: rgba($palette-accent, 0.1);
+
+
+// =============================================
+// HEADER
+// =============================================
+
+$theme-header-light-background: rgba($palette-cream, 0.86);
+$theme-header-light-border: rgba($palette-primary, 0.15);
+$theme-header-light-shadow: rgba($palette-primary, 0.06);
+$theme-header-light-hover: rgba($theme-timeline, 0.12);
+
+$theme-header-dark-background: rgba($palette-primary, 0.88);
+$theme-header-dark-shadow: rgba($palette-black, 0.1);
+
+
+// =============================================
+// HERO
+// =============================================
+
+$theme-hero-light-glow: rgba($theme-timeline, 0.22);
+$theme-hero-light-glow-soft: rgba($palette-accent, 0.1);
+
+$theme-hero-dark-glow: rgba($theme-timeline, 0.18);
+$theme-hero-dark-glow-soft: rgba($palette-accent, 0.06);
+
+$theme-hero-light-shadow: rgba($palette-primary, 0.1);
+$theme-hero-image-shadow: rgba($palette-primary, 0.18);
+
+$theme-hero-availability-border: rgba($palette-secondary, 0.2);
+$theme-hero-availability-background: rgba($palette-cream, 0.88);
+
+$theme-hero-dark-availability-border: rgba($theme-timeline, 0.4);
+$theme-hero-dark-availability-background: rgba($palette-primary, 0.82);
+
+// =============================================
+// PROJECTS
+// =============================================
+
+$theme-project-card-background: linear-gradient(
+  145deg,
+  rgba($palette-white, 0.9),
+  rgba($palette-white, 0.45)
+);
+
+$theme-project-card-hover-border: rgba(
+  $palette-secondary,
+  0.45
+);
+
+$theme-project-card-hover-shadow: rgba(
+  $palette-primary,
+  0.09
+);
+
+$theme-project-featured-border: rgba(
+  $palette-accent,
+  0.65
+);
+
+$theme-project-featured-background: rgba(
+  $palette-accent,
+  0.1
+);
+
+$theme-project-icon-border: rgba(
+  $palette-secondary,
+  0.2
+);
+
+$theme-project-toggle-border: rgba(
+  $palette-secondary,
+  0.25
+);
+
+$theme-project-dark-card-background: linear-gradient(
+  145deg,
+  rgba($palette-cream, 0.05),
+  rgba($palette-cream, 0.015)
+);
+
+$theme-project-dark-hover-border: rgba(
+  $palette-secondary,
+  0.6
+);
+
+$theme-project-dark-hover-shadow: rgba(
+  $palette-black,
+  0.3
+);
+
+$theme-project-dark-featured-border: rgba(
+  $palette-accent,
+  0.5
+);
+
+$theme-project-dark-featured-background: rgba(
+  $palette-accent,
+  0.08
+);
+
+
+// =============================================
+// SKILLS
+// =============================================
+
+$theme-skills-card-background: linear-gradient(
+  145deg,
+  rgba($palette-white, 0.9),
+  rgba($palette-white, 0.45)
+);
+
+$theme-skills-card-hover-border: rgba(
+  $theme-timeline,
+  0.5
+);
+
+$theme-skills-card-hover-shadow: rgba(
+  $palette-primary,
+  0.08
+);
+
+$theme-skills-item-border: rgba(
+  $theme-timeline,
+  0.4
+);
+
+$theme-skills-item-background: rgba(
+  $theme-timeline,
+  0.08
+);
+
+$theme-skills-dark-card-background: linear-gradient(
+  145deg,
+  rgba($palette-cream, 0.05),
+  rgba($palette-cream, 0.015)
+);
+
+$theme-skills-dark-hover-border: rgba(
+  $theme-timeline,
+  0.55
+);
+
+$theme-skills-dark-hover-shadow: rgba(
+  $palette-black,
+  0.3
+);
+
+
+// =============================================
+// LAYOUT
+// =============================================
+
+$max-width: 1440px;
+
+$header-radius: 16px;
+
+$button-radius: 9999px;
+
+
+// =============================================
+// MOTION
+// =============================================
+
+$transition-fast: 200ms ease;
+
+$transition-normal: 300ms ease;
+
+$transition-theme: 500ms ease;
+
+
+// =============================================
+// TYPOGRAPHY
+// =============================================
+
+$font-sans: "Inter", sans-serif;
+
+$font-mono: "Martian Mono", monospace;

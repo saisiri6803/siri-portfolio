@@ -1,0 +1,58 @@
+@use "./variables" as *;
+@use "./breakpoints" as *;
+
+
+// =============================================
+// CONTAINER
+// =============================================
+
+@mixin container {
+  width: min(calc(100% - 2.5rem), $max-width);
+  margin-inline: auto;
+
+  @include sm {
+    width: min(calc(100% - 4rem), $max-width);
+  }
+
+  @include lg {
+    width: min(calc(100% - 6rem), $max-width);
+  }
+}
+
+
+// =============================================
+// TYPOGRAPHY
+// =============================================
+
+@mixin mono-label {
+  font-family: $font-mono;
+  font-size: 10px;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+
+// =============================================
+// BUTTON
+// =============================================
+
+@mixin button-reset {
+  border: 0;
+  outline: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+
+// =============================================
+// HOVER
+// =============================================
+
+@mixin hover-opacity {
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}

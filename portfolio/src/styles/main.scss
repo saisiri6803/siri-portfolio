@@ -1,0 +1,132 @@
+@use "./variables" as *;
+
+
+// =============================================
+// RESET
+// =============================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+
+  font-family: $font-sans;
+
+  background: $theme-light-background;
+  color: $theme-light-text;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  overflow-x: hidden;
+}
+
+
+// =============================================
+// DARK MODE
+// =============================================
+
+body.dark {
+  background: $theme-dark-background;
+  color: $theme-dark-text;
+}
+
+
+// =============================================
+// ELEMENTS
+// =============================================
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+
+// =============================================
+// SELECTION
+// =============================================
+
+::selection {
+  background: $theme-accent;
+  color: $theme-light-text;
+}
+
+
+// =============================================
+// APP
+// =============================================
+
+.app {
+  width: 100%;
+  min-height: 100svh;
+
+  overflow-x: clip;
+
+  background: $theme-light-background;
+  color: $theme-light-text;
+
+  transition:
+    background-color $transition-theme,
+    color $transition-theme;
+}
+
+.app--dark {
+  background: $theme-dark-background;
+  color: $theme-dark-text;
+}
+
+
+// =============================================
+// REDUCED MOTION
+// =============================================
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

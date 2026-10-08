@@ -1,0 +1,558 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/breakpoints" as *;
+
+// =============================================
+// HERO
+// =============================================
+
+.hero {
+  position: relative;
+
+  min-height: 100svh;
+
+  padding: 7.5rem 1.25rem 3rem;
+
+  overflow: hidden;
+
+  background: $theme-light-background;
+
+  color: $theme-light-text;
+
+  isolation: isolate;
+
+  @include md {
+    padding: 8rem 2rem 3rem;
+  }
+
+  @include lg {
+    padding: 8rem 3rem 3rem;
+  }
+}
+
+.hero__hover-image {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  background-image: url("/background.jpeg");
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  opacity: 0;
+
+  transition: opacity 300ms ease;
+
+  mask-image: radial-gradient(
+    circle 140px at var(--mouse-x) var(--mouse-y),
+    black 0%,
+    black 75%,
+    transparent 100%
+  );
+
+  -webkit-mask-image: radial-gradient(
+    circle 140px at var(--mouse-x) var(--mouse-y),
+    black 0%,
+    black 55%,
+    transparent 100%
+  );
+}
+
+.hero:hover .hero__hover-image {
+  opacity: 1;
+}
+
+// =============================================
+// CONTAINER
+// =============================================
+
+.hero__container {
+  position: relative;
+
+  z-index: 2;
+
+  @include container;
+
+  min-height: calc(100svh - 11rem);
+
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  align-items: center;
+
+  gap: 2rem;
+
+  @include md {
+    grid-template-columns:
+      minmax(0, 0.9fr)
+      minmax(0, 1.1fr);
+
+    gap: 2rem;
+  }
+
+  @include lg {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+
+    gap: 4rem;
+  }
+}
+
+// =============================================
+// VISUAL
+// =============================================
+
+.hero__visual {
+  position: relative;
+
+  order: 2;
+
+  min-height: 360px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: center;
+
+  @include md {
+    order: 1;
+
+    min-height: 480px;
+  }
+
+  @include lg {
+    min-height: 620px;
+  }
+}
+
+// =============================================
+// CIRCLE
+// =============================================
+
+.hero__circle {
+  position: absolute;
+
+  bottom: 0;
+
+  left: 50%;
+
+  width: min(82vw, 500px);
+
+  aspect-ratio: 1;
+
+  transform: translateX(-50%);
+
+  border: 1px solid $theme-timeline-border;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      $theme-hero-light-glow,
+      $theme-hero-light-glow-soft
+    );
+
+  box-shadow:
+    0 40px 100px $theme-hero-light-shadow;
+
+  backdrop-filter: blur(8px);
+
+  @include md {
+    width: min(43vw, 480px);
+  }
+
+  @include lg {
+    width: min(40vw, 600px);
+  }
+}
+
+// =============================================
+// IMAGE
+// =============================================
+
+.hero__image {
+  position: relative;
+
+  z-index: 2;
+
+  width: auto;
+
+  max-width: 100%;
+
+  height: min(80vw, 460px);
+
+  object-fit: contain;
+
+  object-position: bottom;
+
+  filter:
+    drop-shadow(
+      0 25px 35px $theme-hero-image-shadow
+    );
+
+  @include md {
+    height: min(50vw, 520px);
+  }
+
+  @include lg {
+    height: min(45vw, 640px);
+  }
+}
+
+// =============================================
+// AVAILABILITY
+// =============================================
+
+.hero__availability {
+  position: absolute;
+
+  z-index: 3;
+
+  bottom: 0.75rem;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  max-width: calc(100% - 2rem);
+
+  padding: 0.6rem 0.9rem;
+
+  border: 1px solid $theme-hero-availability-border;
+
+  border-radius: $button-radius;
+
+  background: $theme-hero-availability-background;
+
+  color: $theme-light-text;
+
+  font-family: $font-mono;
+
+  font-size: 9px;
+
+  line-height: 1;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.1em;
+
+  white-space: nowrap;
+
+  backdrop-filter: blur(12px);
+
+  @include md {
+    font-size: 10px;
+  }
+}
+
+// =============================================
+// CONTENT
+// =============================================
+
+.hero__content {
+  order: 1;
+
+  width: 100%;
+
+  @include md {
+    order: 2;
+  }
+}
+
+// =============================================
+// INTRO
+// =============================================
+
+.hero__intro {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.5rem;
+
+  margin-bottom: 1.25rem;
+
+  @include md {
+    margin-bottom: 1.5rem;
+  }
+}
+
+// =============================================
+// DOT
+// =============================================
+
+.hero__dot {
+  width: 6px;
+
+  height: 6px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: $theme-accent;
+}
+
+// =============================================
+// LABEL
+// =============================================
+
+.hero__label {
+  @include mono-label;
+
+  color: $theme-accent-secondary;
+
+  opacity: 1;
+}
+
+// =============================================
+// TITLE
+// =============================================
+
+.hero__title {
+  margin: 0;
+
+  font-size: clamp(3.5rem, 14vw, 8rem);
+
+  font-weight: 700;
+
+  line-height: 0.84;
+
+  letter-spacing: -0.065em;
+
+  overflow-wrap: break-word;
+
+  color: $theme-light-text;
+
+  @include md {
+    font-size: clamp(3.8rem, 7vw, 6.5rem);
+  }
+
+  @include lg {
+    font-size: clamp(4.5rem, 6.5vw, 8rem);
+  }
+}
+
+// =============================================
+// YEAR
+// =============================================
+
+.hero__year {
+  display: inline-block;
+
+  margin-left: 0.1em;
+
+  font-size: 0.28em;
+
+  font-weight: 500;
+
+  vertical-align: top;
+
+  letter-spacing: 0;
+
+  color: $theme-accent-secondary;
+}
+
+// =============================================
+// DESCRIPTION
+// =============================================
+
+.hero__description {
+  max-width: 420px;
+
+  margin-top: 2rem;
+
+  @include md {
+    margin-top: 2.25rem;
+  }
+
+  @include lg {
+    margin-top: 2.5rem;
+  }
+
+  p {
+    margin: 0;
+
+    font-size: 0.95rem;
+
+    line-height: 1.7;
+
+    color: $theme-light-text-muted;
+
+    @include md {
+      font-size: 1rem;
+    }
+
+    @include lg {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+// =============================================
+// LINK
+// =============================================
+
+.hero__link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.5rem;
+
+  margin-top: 1.25rem;
+
+  color: $theme-accent-secondary;
+
+  font-size: 0.875rem;
+
+  font-weight: 600;
+
+  text-decoration: underline;
+
+  text-underline-offset: 4px;
+
+  transition:
+    color $transition-fast,
+    opacity $transition-fast;
+
+  &:hover {
+    color: $theme-accent;
+  }
+}
+
+// =============================================
+// MOBILE
+// =============================================
+
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 6.5rem;
+  }
+
+  .hero__container {
+    gap: 1.5rem;
+  }
+
+  .hero__title {
+    font-size: clamp(3.2rem, 17vw, 5rem);
+  }
+
+  .hero__visual {
+    min-height: 350px;
+  }
+
+  .hero__circle {
+    width: 82vw;
+  }
+
+  .hero__image {
+    height: 78vw;
+
+    max-height: 430px;
+  }
+}
+
+// =============================================
+// DARK MODE
+// =============================================
+
+.app--dark {
+  .hero {
+    background: $theme-dark-background;
+
+    color: $theme-dark-text;
+  }
+
+  // ---------------------------------------------
+  // Circle
+  // ---------------------------------------------
+
+  .hero__circle {
+    border-color: $theme-timeline-border;
+
+    background:
+      radial-gradient(
+        circle,
+        $theme-hero-dark-glow,
+        $theme-hero-dark-glow-soft
+      );
+
+    box-shadow:
+      0 40px 120px $theme-dark-shadow;
+  }
+
+  // ---------------------------------------------
+  // Title
+  // ---------------------------------------------
+
+  .hero__title {
+    color: $theme-dark-text;
+  }
+
+  // ---------------------------------------------
+  // Intro / Label
+  // ---------------------------------------------
+
+  .hero__dot {
+    background: $theme-accent;
+  }
+
+  .hero__label {
+    color: $theme-accent;
+  }
+
+  // ---------------------------------------------
+  // Year
+  // ---------------------------------------------
+
+  .hero__year {
+    color: $theme-accent;
+  }
+
+  // ---------------------------------------------
+  // Description
+  // ---------------------------------------------
+
+  .hero__description {
+    p {
+      color: $theme-dark-text-muted;
+    }
+  }
+
+  // ---------------------------------------------
+  // Link
+  // ---------------------------------------------
+
+  .hero__link {
+    color: $theme-accent;
+
+    &:hover {
+      color: $theme-accent-secondary;
+    }
+  }
+
+  // ---------------------------------------------
+  // Availability
+  // ---------------------------------------------
+
+  .hero__availability {
+    border-color: $theme-hero-dark-availability-border;
+
+    background: $theme-hero-dark-availability-background;
+
+    color: $theme-dark-text;
+  }
+}

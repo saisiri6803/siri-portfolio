@@ -1,0 +1,270 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/breakpoints" as *;
+
+.header {
+  position: fixed;
+
+  z-index: 50;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  padding: 1rem;
+
+  @include sm {
+    padding-inline: 1.5rem;
+  }
+
+  @include lg {
+    padding-inline: 2rem;
+  }
+}
+
+.header__nav {
+  @include container;
+
+  min-height: 56px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0.65rem 0.75rem 0.65rem 1rem;
+
+  border: 1px solid $theme-header-light-border;
+
+  border-radius: $header-radius;
+
+  background: $theme-header-light-background;
+
+  color: $theme-light-text;
+
+  box-shadow:
+    0 8px 30px $theme-header-light-shadow;
+
+  backdrop-filter: blur(20px);
+}
+
+.header__logo {
+  font-size: 0.9rem;
+
+  font-weight: 700;
+
+  letter-spacing: -0.02em;
+
+  color: $theme-light-text;
+
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $theme-accent-secondary;
+  }
+}
+
+.header__links {
+  display: none;
+
+  @include md {
+    display: flex;
+
+    align-items: center;
+
+    gap: 1rem;
+  }
+
+  @include lg {
+    gap: 1.4rem;
+  }
+}
+
+.header__link {
+  font-size: 0.8rem;
+
+  font-weight: 600;
+
+  color: $theme-light-text;
+
+  transition:
+    color $transition-fast,
+    opacity $transition-fast;
+
+  &:hover {
+    color: $theme-accent-secondary;
+  }
+}
+
+.header__separator {
+  font-family: $font-mono;
+
+  font-size: 0.7rem;
+
+  color: $theme-accent;
+
+  opacity: 0.7;
+}
+
+.header__actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.35rem;
+}
+
+.header__theme-button,
+.header__menu-button {
+  width: 36px !important;
+
+  height: 36px !important;
+
+  border: 1px solid $theme-light-border !important;
+
+  color: $theme-light-text !important;
+
+  background: transparent !important;
+
+  transition:
+    background-color $transition-fast,
+    border-color $transition-fast,
+    color $transition-fast !important;
+}
+
+.header__theme-button:hover,
+.header__menu-button:hover {
+  background: $theme-header-light-hover !important;
+}
+
+@media (max-width: 767px) {
+  .header__theme-button {
+    display: none !important;
+  }
+}
+
+.header__menu-button {
+  @include md {
+    display: none !important;
+  }
+}
+
+.header__mobile-menu {
+  @include container;
+
+  margin-top: 0.5rem;
+
+  padding: 0.5rem 1rem;
+
+  border: 1px solid $theme-light-border;
+
+  border-radius: $header-radius;
+
+  background: $theme-light-background;
+
+  color: $theme-light-text;
+
+  box-shadow:
+    0 20px 50px $theme-header-light-shadow;
+
+  backdrop-filter: blur(20px);
+
+  @include md {
+    display: none;
+  }
+}
+
+.header__mobile-link {
+  display: block;
+
+  padding: 0.9rem 0;
+
+  border-bottom: 1px solid $theme-light-border;
+
+  font-size: 0.875rem;
+
+  font-weight: 600;
+
+  color: $theme-light-text;
+
+  transition:
+    color $transition-fast,
+    border-color $transition-fast;
+
+  &:hover {
+    color: $theme-accent-secondary;
+  }
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+/* =================================
+   DARK MODE
+================================= */
+
+.app--dark {
+  .header__nav,
+  .header__mobile-menu {
+    border-color: $theme-dark-border;
+
+    background: $theme-header-dark-background;
+
+    color: $theme-dark-text;
+
+    box-shadow:
+      0 20px 50px $theme-header-dark-shadow;
+  }
+
+  .header__logo,
+  .header__link {
+    color: $theme-dark-text;
+  }
+
+  .header__logo:hover,
+  .header__link:hover {
+    color: $theme-accent;
+  }
+
+  .header__separator {
+    color: $theme-accent;
+  }
+
+  .header__theme-button,
+  .header__menu-button {
+    border-color: $theme-dark-border !important;
+
+    color: $theme-dark-text !important;
+  }
+
+  .header__theme-button:hover,
+  .header__menu-button:hover {
+    background: $theme-dark-surface-hover !important;
+  }
+
+  .header__mobile-link {
+    border-color: $theme-dark-border;
+
+    color: $theme-dark-text;
+  }
+
+  .header__mobile-link:hover {
+    color: $theme-accent;
+  }
+}
+
+/* =================================
+   Reduced Motion
+================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .header__logo,
+  .header__link,
+  .header__theme-button,
+  .header__menu-button,
+  .header__mobile-link {
+    transition: none;
+  }
+}

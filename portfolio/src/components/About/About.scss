@@ -1,0 +1,75 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/breakpoints" as *;
+
+.about {
+  padding-block: 4rem;
+
+  background: $theme-dark-background;
+  color: $theme-dark-text;
+
+  @include md {
+    padding-block: 6rem;
+  }
+
+  @include lg {
+    padding-block: 8rem;
+  }
+}
+
+.about__container {
+  @include container;
+
+  display: grid;
+  grid-template-columns: 1fr;
+
+  gap: 2.5rem;
+
+  @include lg {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 5rem;
+
+    align-items: end;
+  }
+}
+
+.about__label {
+  @include mono-label;
+
+  margin: 0;
+
+  color: $theme-accent;
+}
+
+.about__content {
+  max-width: 720px;
+}
+
+.about__headline {
+  margin: 0;
+
+  font-size: clamp(2rem, 6vw, 4rem);
+
+  font-weight: 500;
+  line-height: 0.95;
+
+  letter-spacing: -0.05em;
+
+  color: $theme-dark-text;
+}
+
+.about__description {
+  max-width: 600px;
+
+  margin: 1.75rem 0 0;
+
+  font-size: 1rem;
+  line-height: 1.75;
+
+  color: $theme-dark-text-muted;
+
+  @include md {
+    font-size: 1.1rem;
+  }
+}
